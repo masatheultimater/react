@@ -1,0 +1,12 @@
+version: '3.8'
+services:
+  react:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - ./:$DOCKER_SRC
+    command: sh -c "cd app && PORT=3000 yarn start"
+    ports:
+      - $WSL_PORT:$DOCKER_PORT
+    stdin_open: true
