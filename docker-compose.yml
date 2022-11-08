@@ -1,12 +1,15 @@
-version: '3.8'
+version: '3.9'
 services:
   react:
+    container_name: react
     build:
       context: .
       dockerfile: Dockerfile
     volumes:
-      - ./:$DOCKER_SRC
-    command: sh -c "cd app && PORT=3000 yarn start"
+      - $WSL_SRC:$DOCKER_SRC
+    working_dir: $DOCKER_SRC
+    command: sh -c "cd react-sample && yarn start"
     ports:
       - $WSL_PORT:$DOCKER_PORT
+    tty: true
     stdin_open: true
