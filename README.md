@@ -5,5 +5,21 @@ $ docker-compose build
 ```
 コンテナ上でReactアプリ作成
 ```
-$ docker-compose run --rm react sh -c "yarn global add create-react-app app --template typescript"
+$ docker exec -it react sh
+
+# yarn create react-app <プロジェクト名> --template typescript
+or
+# npx create-react-app . --template typescript
+```
+
+
+
+
+以下はパッケージ依存解決のための予約語のためプロジェクトの名前に使用できない
+- react
+- react-dom
+- react-scripts
+
+ES lintの設定
+```
 ```
